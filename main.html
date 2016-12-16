@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<head>
+<meta  charset=utf-8" />
+<title>Геолокація</title> 
+<style>
+body{color:white;
+background:url('earth.jpg');}</style>
+<script type="text/javascript">
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById('loc').innerHTML="\n"+latitude+" градусів північної широти \n" + longitude +" градусів східної довготи";
+        });
+
+    } else {
+        alert("Геолокація не підтримується вашим браузером. ");
+    }
+
+function show_map(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+
+}
+function get_location() {
+    navigator.geolocation.getCurrentPosition(show_map);
+    document.write(latitude.toString(),longitude.toString());
+}
+</script>
+ 
+</head>
+ 
+<body>
+<p>Ви тут: </p>
+<p id="loc">  </p>
+</body>
+</html>
